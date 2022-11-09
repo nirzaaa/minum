@@ -16,5 +16,5 @@ Cheers!
 
 ## Usage
 
-You can download the script to the remote machine and run it for you automatically by using:
+You can download the script to the remote machine and run it for you automatically by using:  
 `wget <my_ip>:8000/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh`
