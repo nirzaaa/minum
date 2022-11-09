@@ -1,0 +1,2 @@
+# minum
+Minimal Enumeration Code
