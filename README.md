@@ -24,7 +24,7 @@ python -m http.server
 
 On the remote machine:
 ```
-`wget <my_ip>:8000/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh`
+wget <my_ip>:8000/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh
 ```
 
 ## Usage
