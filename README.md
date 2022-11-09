@@ -1,4 +1,4 @@
-# minum : Minimal Enumeration Code
+# minum : Minimal Enumeration Tool
 
 This enumeration for privilege escalation tool, unlike many others, is built towards the idea of finding the top most relevant privilege escalation vectors for its user.  
 The idea is to prevent throwing a lot of things at the user and let him begin searching for a needle in a haystack.  
