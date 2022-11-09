@@ -14,6 +14,16 @@ Have some suggestions? Leave an issue and we will be able to look at it and make
 
 Cheers!
 
+## Install
+```
+git clone https://github.com/nirzaaa/minum.git
+cd minum
+python -m http.server
+
+On the remote machine:
+`wget <my_ip>:8000/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh`
+```
+
 ## Usage
 
 You can download the script to the remote machine and run it for you automatically by using:  
