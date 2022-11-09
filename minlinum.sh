@@ -97,6 +97,17 @@ else
     echo "No configurations looking this time? let's move on..."
 fi
 
+read -p "Do you want to search for extensions like .sh, .php, .py etc? y/n" answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    read -r -p "Enter their names (without the dot) with spaces between: " -a arr
+	for ext in "${arr[@]}"; do 
+	   echo -e "${YELLOW}${bold}.$ext stuff:${normal}"
+	   ls -la /usr/bin/ | grep ".$ext$"
+	done
+else
+    echo "No extensions are interesting for you? let's move on..."
+fi
+
 
 echo -e "\n${RED} Looking for classic priv esc:${NC}\n\n"
 
