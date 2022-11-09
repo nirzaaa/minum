@@ -13,3 +13,8 @@ P.S
 Have some suggestions? Leave an issue and we will be able to look at it and make modifications.
 
 Cheers!
+
+## Usage
+
+You can download the script to the remote machine and run it for you automatically by using:
+`wget <my_ip>:8000/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh`
