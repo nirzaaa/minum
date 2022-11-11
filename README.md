@@ -22,6 +22,8 @@ git clone https://github.com/nirzaaa/minum.git
 cd minum
 python -m http.server
 ```
+p.s.
+Pay attention to play `linpeas.sh` and `pspy64` in that folder so we will be able to download it for you automatically :)
 
 On the remote machine:
 ```
