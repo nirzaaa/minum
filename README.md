@@ -21,6 +21,8 @@ On your local machine:
 git clone https://github.com/nirzaaa/minum.git
 cd minum
 python -m http.server
+p.s.
+Please place `linpeas.sh` and `pspy64` in that folder, so we will be able to download it automatically for you :)
 ```
 
 On the remote machine:
