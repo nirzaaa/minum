@@ -116,7 +116,7 @@ read -p "Do you want to search for extensions like .sh, .php, .py etc? y/n " ans
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     read -r -p "Enter their names (without the dot) with spaces between: " -a arr
 	for ext in "${arr[@]}"; do 
-	   echo -e "${YELLOW}${bold}.$ext stuff:${normal}"
+	   echo -e "${YELLOW}${bold}/usr/bin*.$ext stuff:${normal}"
 	   ls -la /usr/bin/ | grep ".$ext$"
 	done
 else
