@@ -45,6 +45,13 @@ normal=$(tput sgr0)
 underline=`tput smul`
 nounderline=`tput rmul`
 
+
+base64 -d <<<"H4sIAAAAAAAAA52T3Q3DIAyE35nCj43U6hYIXaELWHIH8fAFm4YfNRDVkeXD+XIyiBD9DvlWkRPi
+AIjC0Ek9++4mm1UcyrMSZQWC9C7I6Dslw7XVVlXCafGXoTOZPtKvb3mgzReNi2Ge0lRXLHKXSvg2
+j0Z/Lv/GykWaWLFaUV2waDXPYfR6TqOZN2vMJ9FRLvEYmRDjVZxenppuEl/AifYiEz/FMczO05OB
+WZb/Qa2Bcxyje26c4lDlDs+NiXuKRxury5IttZQVuuf9kW31GcIHH1UD24EEAAA=" | gunzip
+
+
 read -p 'Please enter your ip: ' my_ip
 
 read -p 'Please enter your server`s port: ' my_port
