@@ -153,6 +153,20 @@ fi
 echo -e "${BLUE} Docker maybe:${NC}"
 netstat -tplan
 
+echo -e "${BLUE}ls /home:${NC}"
+ls -la /home
+read -p "Do you want to see what those users are running? y/n " answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    read -r -p "Please enter users names separated by space: " -a arr
+	for user in "${arr[@]}"; do 
+	   echo -e "${YELLOW}${bold}$user user:${normal}"
+	   ps aux | grep $user
+	done
+else
+    echo "Not interested in what those users running hah?"
+fi
+
+
 echo -e "${BLUE} uname -a:${NC}"
 uname -a
 
