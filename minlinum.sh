@@ -168,12 +168,37 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 	if [ "$ip_scan" == "" ] ;then
 		ip_scan="192.168.0.1"
 	fi
-	printf "We are running the scan on: %s\n" $ip_scan 
+	printf "We are running the scan on: %s\n" $ip_scan
+	echo "nc scan:" 
     nc -zv $ip_scan 1-65535 2>&1 | grep -v refused | tee scan
+    echo "nc scan on udp:"
+    nc -uzv 192.168.0.1 1-65535 2>&1 | grep -v refused | tee scan.udp
+    echo "nmap scan:"
 	nmap -n -sT $ip_scan || echo "There is no nmap installed on this machine?" | tee nmap.scan
+
 else
     echo "I see, let's move on..."
 fi
+
+echo -e "${BLUE} Looking at important locations:${NC}"
+
+echo -e "${YELLOW} ls /proc/net:${NC}"
+ls /proc/net
+echo -e "${YELLOW} cat /proc/net/arp:${NC}"
+cat /proc/net/arp
+
+echo -e "${YELLOW} cat /proc/net/tcp:${NC}"
+cat /proc/net/tcp
+
+echo -e "${YELLOW} cat /proc/net/fib_trie:${NC}"
+cat /proc/net/fib_trie
+
+echo -e "${YELLOW} ls /etc/init.d:${NC}"
+ls /etc/init.d
+
+echo -e "${YELLOW} ls /etc/default:${NC}"
+ls /etc/default
+
 
 echo -e "${BLUE}ls /home:${NC}"
 ls -la /home
