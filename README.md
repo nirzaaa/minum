@@ -34,3 +34,6 @@ wget <my_ip>:<my_port>/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh
 
 You can download the script to the remote machine and run it for you automatically by using:  
 `wget <my_ip>:<my_port>/minlinum.sh; chmod +x minlinum.sh; ./minlinum.sh`
+
+## Suggestions
+Have any suggestions? Something is missing? (:O) You can leave us an issue and we will look into it :)
