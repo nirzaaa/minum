@@ -171,9 +171,14 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 	printf "We are running the scan on: %s\n" $ip_scan
 	echo "nc scan:" 
     nc -zv $ip_scan 1-65535 2>&1 | grep -v refused | tee scan
-    echo "nc scan on udp:"
-    nc -uzv 192.168.0.1 1-65535 2>&1 | grep -v refused | tee scan.udp
-    echo "nmap scan:"
+    read -p "Do you want to run nc scan on udp too? (might take some time) y/n " answer
+    if [ "$answer" != "${answer#[Yy]}" ] ;then
+    	echo "nc scan on udp: (might take some time)"
+	    nc -uzv $ip_scan 1-65535 2>&1 | grep -v refused | tee scan.udp
+	else
+	    echo "I see, let's move on..."
+	fi
+	echo "nmap scan:"
 	nmap -n -sT $ip_scan || echo "There is no nmap installed on this machine?" | tee nmap.scan
 
 else
