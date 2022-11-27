@@ -153,6 +153,28 @@ fi
 echo -e "${BLUE} Docker maybe:${NC}"
 netstat -tplan
 
+echo -e "${BLUE} Take a closer look at listening services:${NC}"
+netstat -tnl | grep LISTEN
+
+echo -e "${BLUE} Local network enumeration:${NC}"
+
+echo -e "${YELLOW} A quick ping sweep of the subnet:${NC}"
+for i in {1..254}; do (ping -c 1 192.168.0.${i} | grep "bytes from" | grep -v "Unreachable" &); done;
+
+echo -e "${YELLOW} identify open ports:${NC}"
+read -p "Do you want to identify open local ports? y/n " answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+	read -p "Please enter the ip to run the scan on (the default value is: 192.168.0.1): " ip_scan
+	if [ "$ip_scan" == "" ] ;then
+		ip_scan="192.168.0.1"
+	fi
+	printf "We are running the scan on: %s\n" $ip_scan 
+    nc -zv $ip_scan 1-65535 2>&1 | grep -v refused | tee scan
+	nmap -n -sT $ip_scan || echo "There is no nmap installed on this machine?" | tee nmap.scan
+else
+    echo "I see, let's move on..."
+fi
+
 echo -e "${BLUE}ls /home:${NC}"
 ls -la /home
 read -p "Do you want to see what those users are running? y/n " answer
