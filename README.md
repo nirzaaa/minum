@@ -39,6 +39,5 @@ You can download the script to the remote machine and run it for you automatical
 Have any suggestions? Something is missing? (:grimacing:) You can leave us an issue and we will look into it :smiley:
 
 ## Support us
-[![name]()](link to your URL)
-![68747470733a2f2f63646e2e6275796d6561636f666665652e636f6d2f627574746f6e732f64656661756c742d6f72616e67652e706e67](https://user-images.githubusercontent.com/117816100/206116650-916f11c0-bacb-4578-b8f7-7048ff363d00.png)
+![68747470733a2f2f63646e2e6275796d6561636f666665652e636f6d2f627574746f6e732f64656661756c742d6f72616e67652e706e67]([https://user-images.githubusercontent.com/117816100/206116650-916f11c0-bacb-4578-b8f7-7048ff363d00.png](https://www.buymeacoffee.com/nirza))
 
