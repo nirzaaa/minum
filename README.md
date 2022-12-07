@@ -40,13 +40,3 @@ Have any suggestions? Something is missing? (:grimacing:) You can leave us an is
 
 ## Support us
 [![name](https://user-images.githubusercontent.com/117816100/206117004-54c33ba1-918e-43d2-96b4-b71018455a1e.png)](https://www.buymeacoffee.com/nirza)
-
-
-
-
-
-[![68747470733a2f2f63646e2e6275796d6561636f666665652e636f6d2f627574746f6e732f64656661756c742d6f72616e67652e706e67]](https://user-images.githubusercontent.com/117816100/206117004-54c33ba1-918e-43d2-96b4-b71018455a1e.png)(https://www.buymeacoffee.com/nirza)
-
-
-
-
