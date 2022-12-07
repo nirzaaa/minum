@@ -40,5 +40,5 @@ Have any suggestions? Something is missing? (:grimacing:) You can leave us an is
 
 ## Support us
 A wise man once said that 160 cups of coffee equals 1 attempt for the oscp exam.  
-Take me a coffee step further towards the opportunity of a lifetime :)
+Take me a coffee step further towards the opportunity of a lifetime :)  
 [![name](https://user-images.githubusercontent.com/117816100/206117004-54c33ba1-918e-43d2-96b4-b71018455a1e.png)](https://www.buymeacoffee.com/nirza)
