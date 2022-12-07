@@ -37,6 +37,3 @@ You can download the script to the remote machine and run it for you automatical
 
 ## Suggestions
 Have any suggestions? Something is missing? (:grimacing:) You can leave us an issue and we will look into it :smiley:
-
-## Support us :)
-https://www.buymeacoffee.com/nirza
