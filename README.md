@@ -38,7 +38,7 @@ You can download the script to the remote machine and run it for you automatical
 ## Suggestions
 Have any suggestions? Something is missing? (:grimacing:) You can leave us an issue and we will look into it :smiley:
 
-## Support us
+## Support Us
 A wise man once said that 160 cups of coffee equals 1 attempt for the oscp exam.  
 Support us and take me a coffee step further towards the opportunity of a lifetime :unicorn:  
   
