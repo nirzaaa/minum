@@ -39,7 +39,7 @@ You can download the script to the remote machine and run it for you automatical
 Have any suggestions? Something is missing? (:grimacing:) You can leave us an issue and we will look into it :smiley:
 
 ## Support us
-[![name](link to image on GH)](link to your URL)
+[![name](https://user-images.githubusercontent.com/117816100/206117004-54c33ba1-918e-43d2-96b4-b71018455a1e.png)](https://www.buymeacoffee.com/nirza)
 
 
 
