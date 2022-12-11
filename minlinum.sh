@@ -88,6 +88,9 @@ fi
 echo -e "${BLUE}ls -la /var/backups:${NC}"
 ls -la /var/backups
 
+echo -e "${BLUE}ls -la /backup:${NC}"
+ls -la /backup
+
 echo -e "${BLUE}ls -aR /home:${NC}"
 ls -la /home
 read -p "After looking at the home directory, do you want to look into folders inside it? y/n " answer
