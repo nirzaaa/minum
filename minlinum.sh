@@ -265,6 +265,10 @@ echo -e "\n${RED} Looking for git stuff:${NC}\n\n"
 cd /
 git log -p
 
+echo -e "\n${RED} Looking for git stuff in other locations:${NC}\n\n"
+
+find / -type d -name '.git' 2>/dev/null
+
 echo -e "\n${RED} linpeas.sh\npspy64${NC}\n\n"
 cd /tmp
 if ! test -f "linpeas.sh"; then
